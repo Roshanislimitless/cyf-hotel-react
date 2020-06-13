@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(185, 196, 176);
 }
 
 .search-wrapper {
@@ -12,7 +13,7 @@ body {
   font-weight: bold;
   padding: 0.75rem;
   margin-bottom: 0;
-  color: #5b5757;
+  color: #754545;
 }
 
 .search-row {
