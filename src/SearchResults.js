@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
+import SearchRows from "./SearchRows";
 
-const SearchResults = prop => {
+const SearchResults = props => {
   const Heading = [
     "Id",
     "Title",
@@ -15,7 +16,7 @@ const SearchResults = prop => {
   ];
 
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           {Heading.map((any, index) => (
@@ -23,21 +24,10 @@ const SearchResults = prop => {
           ))}
         </tr>
       </thead>
+
       <tbody>
-        {prop.results.map((any, index) => (
-          <tr>
-            <td key={index}>{any.id}</td>
-            <td key={index}>{any.title}</td>
-            <td key={index}>{any.firstName}</td>
-            <td key={index}>{any.surname}</td>
-            <td key={index}>{any.email}</td>
-            <td key={index}>{any.roomId}</td>
-            <td key={index}>{any.checkInDate}</td>
-            <td key={index}>{any.checkOutDate}</td>
-            <td key={index}>
-              {moment(any.checkOutDate).diff(moment(any.checkInDate), "days")}
-            </td>
-          </tr>
+        {props.results.map((data, index) => (
+          <SearchRows key={index} data={data} />
         ))}
       </tbody>
     </table>

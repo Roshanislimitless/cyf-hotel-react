@@ -40,18 +40,17 @@
   font-size: large;
 }
 
-.card-div {
+.card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
 }
 .card {
-  border-radius: 15px;
   margin: 7px;
-  padding: 10px;
-  background-color: rgb(17, 91, 151);
+  padding: 5px;
+  background-color: ivory;
 }
 .card-body a {
   background-color: rgb(129, 71, 71);

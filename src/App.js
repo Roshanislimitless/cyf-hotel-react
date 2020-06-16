@@ -3,7 +3,7 @@ import React from "react";
 import Bookings from "./Bookings";
 import "./App.css";
 import Heading from "./heading";
-import TouristInfoCards from "./touristInfo";
+import TouristInfoCards from "./TouristInfoCards";
 import Footer from "./footer";
 
 let array = [
