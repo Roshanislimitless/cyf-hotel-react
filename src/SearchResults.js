@@ -1,5 +1,4 @@
-import React from "react";
-import moment from "moment";
+import React, { useState } from "react";
 import SearchRows from "./SearchRows";
 
 const SearchResults = props => {
@@ -14,6 +13,15 @@ const SearchResults = props => {
     "Check Out",
     "Total Nights"
   ];
+  const [backgroundColor, toChangeColor] = useState("blackRow");
+
+  const changeColor = () => {
+    if (backgroundColor === "blackRow") {
+      toChangeColor("whiteRow");
+    } else {
+      toChangeColor("blackRow");
+    }
+  };
 
   return (
     <table className="table">
@@ -27,7 +35,12 @@ const SearchResults = props => {
 
       <tbody>
         {props.results.map((data, index) => (
-          <SearchRows key={index} data={data} />
+          <SearchRows
+            name={backgroundColor}
+            color={changeColor}
+            key={index}
+            data={data}
+          />
         ))}
       </tbody>
     </table>

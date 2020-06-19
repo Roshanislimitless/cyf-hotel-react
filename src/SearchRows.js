@@ -4,7 +4,7 @@ import moment from "moment";
 const SearchRows = props => {
   const data = props.data;
   return (
-    <tr>
+    <tr className={props.name} onClick={props.color}>
       <td>{data.id}</td>
       <td>{data.title}</td>
       <td>{data.firstName}</td>

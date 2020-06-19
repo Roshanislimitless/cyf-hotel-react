@@ -6,6 +6,12 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+.blackRow {
+  background-color: #d8b2b2;
+}
+.whiteRow {
+  background-color: rgb(110, 176, 233);
+}
 
 .App-header {
   display: flex;
