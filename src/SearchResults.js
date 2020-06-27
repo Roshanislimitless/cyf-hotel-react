@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchRows from "./SearchRows";
-
+import CustomerProfile from "./CustomerProfile";
 const SearchResults = props => {
   const Heading = [
     "Id",
@@ -13,37 +13,27 @@ const SearchResults = props => {
     "Check Out",
     "Total Nights"
   ];
-  const [backgroundColor, toChangeColor] = useState("blackRow");
-
-  const changeColor = () => {
-    if (backgroundColor === "blackRow") {
-      toChangeColor("whiteRow");
-    } else {
-      toChangeColor("blackRow");
-    }
-  };
 
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          {Heading.map((any, index) => (
-            <td key={index}>{any}</td>
-          ))}
-        </tr>
-      </thead>
+    <div>
+      {" "}
+      <table className="table">
+        <thead>
+          <tr>
+            {Heading.map((any, index) => (
+              <td key={index}>{any}</td>
+            ))}
+          </tr>
+        </thead>
 
-      <tbody>
-        {props.results.map((data, index) => (
-          <SearchRows
-            name={backgroundColor}
-            color={changeColor}
-            key={index}
-            data={data}
-          />
-        ))}
-      </tbody>
-    </table>
+        <tbody>
+          {props.results.map((data, index) => (
+            <SearchRows key={index} data={data} />
+          ))}
+        </tbody>
+      </table>
+      <CustomerProfile />
+    </div>
   );
 };
 

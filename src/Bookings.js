@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search.js";
 import SearchResults from "./SearchResults.js";
-import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
-  const search = searchVal => {
-    console.info("TO DO!", searchVal);
-  };
-
   const [bookings, setBookings] = useState([]);
   console.log("hello", bookings);
+
+  const search = searchVal => {
+    console.info("TO DO!", searchVal);
+
+    setBookings(
+      bookings.filter(single => {
+        return (
+          single.firstName.includes(searchVal) ||
+          single.surname.includes(searchVal)
+        );
+      })
+    );
+  };
 
   useEffect(() => {
     fetch("https://cyf-react.glitch.me")
