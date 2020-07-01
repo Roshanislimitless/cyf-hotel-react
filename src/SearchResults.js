@@ -11,12 +11,18 @@ const SearchResults = props => {
     "Room id",
     "Check In",
     "Check Out",
-    "Total Nights"
+    "Total Nights",
+    "Buttons"
   ];
+
+  const [customerId, setCustomerId] = useState("");
+
+  const customerIdSettersSetter = id => {
+    setCustomerId(id);
+  };
 
   return (
     <div>
-      {" "}
       <table className="table">
         <thead>
           <tr>
@@ -28,11 +34,15 @@ const SearchResults = props => {
 
         <tbody>
           {props.results.map((data, index) => (
-            <SearchRows key={index} data={data} />
+            <SearchRows
+              key={index}
+              data={data}
+              customerId={customerIdSettersSetter}
+            />
           ))}
         </tbody>
       </table>
-      <CustomerProfile />
+      {customerId && <CustomerProfile id={customerId} />}
     </div>
   );
 };

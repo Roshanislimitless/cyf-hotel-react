@@ -4,17 +4,18 @@ import SearchButton from "./SearchButton";
 const Search = props => {
   const [searchInput, setSearchInput] = useState("");
 
-  const onSubmit = event => {
+  const handleSearchInput = event => {
+    console.log("inputCheck", event.target.value);
+
+    setSearchInput(event.target.value);
+  };
+
+  const handleSubmit = event => {
     event.preventDefault();
     props.search(searchInput);
   };
+  console.log("searchInput", searchInput);
 
-  const handleSearchInput = event => {
-    const input = event.target.value;
-    console.log("inputCheck", input);
-
-    setSearchInput(input);
-  };
   return (
     <div className="search">
       <div className="page-header">
@@ -22,7 +23,7 @@ const Search = props => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-          <form className="form-group search-box" onSubmit={onSubmit}>
+          <form className="form-group search-box" onSubmit={handleSubmit}>
             <label htmlFor="customerName">Customer name</label>
             <div className="search-row">
               <input
