@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search.js";
 import SearchResults from "./SearchResults.js";
+import BookingForm from "./BookingForm";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -35,9 +36,15 @@ const Bookings = () => {
   if (bookings.length == 0) {
     return <p>Loading...</p>;
   }
+
+  const handleSubmitBooking = booking => {
+    setBookings([...bookings, booking]);
+  };
+
   return (
     <div className="App-content">
       <div className="container">
+        <BookingForm submitBooking={handleSubmitBooking} booking={bookings} />
         <Search search={setSearchValue} />
         <SearchResults results={searchValue ? filteredBookings : bookings} />
       </div>

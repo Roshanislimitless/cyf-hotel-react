@@ -21,6 +21,16 @@ const SearchResults = props => {
     setCustomerId(id);
   };
 
+  const [className, setClassName] = "";
+
+  const classNameChangerFunction = any => {
+    if (any === "No") {
+      setClassName(any);
+    } else {
+      setClassName("");
+    }
+  };
+
   return (
     <div>
       <table className="table">
@@ -42,7 +52,12 @@ const SearchResults = props => {
           ))}
         </tbody>
       </table>
-      {customerId && <CustomerProfile id={customerId} />}
+      {customerId && !className && (
+        <CustomerProfile
+          id={customerId}
+          classNameChangerFunction={classNameChangerFunction}
+        />
+      )}
     </div>
   );
 };
